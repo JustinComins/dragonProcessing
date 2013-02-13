@@ -16,7 +16,7 @@ void nextIteration(){
   dragon =
     (int) Math.pow(2, (int) Math.pow(2, n)) * dragon +
     (int) Math.pow(2, (int) (Math.pow(2, n) - 1)) +
-    complimentCenter(dragon, n);
+    dragon - (int) Math.pow(2, (n - 1) / 2);
 }
 
 void drawDragon(int d){
@@ -38,14 +38,5 @@ void keyPressed(){
     background(255);
     nextIteration();
     drawDragon(dragon);
-  }
-}
-
-int complimentCenter(int a, int b){
-  if(a %  Math.pow(2, (b + 1) / 2) > Math.pow(2, (b - 1) / 2)){
-    return (int) (a - Math.pow(2, (b - 1) / 2));
-  }
-  else{
-    return (int) (a + Math.pow(2, (b - 1) / 2));
   }
 }
