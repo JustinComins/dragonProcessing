@@ -9,13 +9,14 @@ void setup(){
 }
 
 void nextIteration(){
-  for(int n = 1; 2 ^ (2 ^ n - 1) < dragon; n++){
+  int n = 1;
+  while(Math.pow(2, (int) Math.pow(2, n - 1)) < dragon){
     n++;
   }
   dragon =
-    Math.pow(2, Math.pow(2, n)) * dragon +
-    Math.pow(2, (Math.pow(2, n) - 1) +
-    dragon ^ Math.pow(2, n - 1);
+    (int) Math.pow(2, (int) Math.pow(2, n)) * dragon +
+    (int) Math.pow(2, (int) (Math.pow(2, n) - 1)) +
+    complimentCenter(dragon, n);
 }
 
 void drawDragon(int d){
@@ -24,7 +25,6 @@ void drawDragon(int d){
 
 void mousePressed(){
   background(255);
-  gen++;
   nextIteration();
   drawDragon(dragon);
 }
@@ -32,10 +32,20 @@ void mousePressed(){
 void keyPressed(){
   if(key == ENTER){
     background(255);
-    gen = 0;
+    dragon = 1;
   }
   if(key == TAB){
     background(255);
-    gen++;
+    nextIteration();
+    drawDragon(dragon);
+  }
+}
+
+int complimentCenter(int a, int b){
+  if(a %  Math.pow(2, (b + 1) / 2) > Math.pow(2, (b - 1) / 2)){
+    return (int) (a - Math.pow(2, (b - 1) / 2));
+  }
+  else{
+    return (int) (a + Math.pow(2, (b - 1) / 2));
   }
 }
