@@ -1,4 +1,6 @@
-int dragon = 1;
+import java.lang.*
+
+dragon = 1;
 
 void setup(){
   size(400, 400);
@@ -6,17 +8,6 @@ void setup(){
   rectMode(CORNERS);
   noFill();
   drawDragon(0);
-}
-
-void nextIteration(){
-  int n = 1;
-  while(Math.pow(2, (int) Math.pow(2, n - 1)) < dragon){
-    n++;
-  }
-  dragon =
-    (int) Math.pow(2, (int) Math.pow(2, n)) * dragon +
-    (int) Math.pow(2, (int) (Math.pow(2, n) - 1)) +
-    dragon - (int) Math.pow(2, (n - 1) / 2);
 }
 
 void drawDragon(int d){
@@ -39,4 +30,16 @@ void keyPressed(){
     nextIteration();
     drawDragon(dragon);
   }
+}
+
+for when dragon is an int
+void nextIteration(){
+  int n = 1;
+  while(Math.pow(2, (int) Math.pow(2, n - 1)) < dragon){
+    n++;
+  }
+  dragon =
+    (int) Math.pow(2, (int) Math.pow(2, n)) * dragon +
+    (int) Math.pow(2, (int) (Math.pow(2, n) - 1)) +
+    dragon - (int) Math.pow(2, (n - 1) / 2);
 }
